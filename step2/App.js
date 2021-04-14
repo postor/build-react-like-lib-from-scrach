@@ -9,12 +9,12 @@ const App = () => {
       children: [
         new D('button', {
           children: '-',
-          onClick: () => setI(i - 1)
+          onClick: () => setI(i - 1) || setStr('declining')
         }),
         i + '',
         new D('button', {
           children: '+',
-          onClick: () => setI(i + 1)
+          onClick: () => setI(i + 1) || setStr('increasing')
         })
       ]
     })

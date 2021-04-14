@@ -124,15 +124,6 @@ export function useState(initalValue) {
 }
 ```
 
-```
-// lib/utils.js
-let REACT_LIKE_CUR_COMPONENT, REACT_LIKE_CUR_COMPONENT_STATEI
-export const setREACT_LIKE_CUR_COMPONENT = x => REACT_LIKE_CUR_COMPONENT = x
-export const getREACT_LIKE_CUR_COMPONENT = () => REACT_LIKE_CUR_COMPONENT
-export const setREACT_LIKE_CUR_COMPONENT_STATEI = x => REACT_LIKE_CUR_COMPONENT_STATEI = x
-export const getREACT_LIKE_CUR_COMPONENT_STATEI = () => REACT_LIKE_CUR_COMPONENT_STATEI
-
-```
 
 ## step3: 事件 | event
 
@@ -193,6 +184,30 @@ const App = () => {
 }
 
 export default App
+```
+
+```
+// lib/d.js
+export class D {
+  ...
+  updateState() {
+    this.stateChangeCount++
+    // 等待合并 state 更新| wait for changes
+    Promise.resolve().then(() => {
+      if (!this.stateChangeCount) return
+      this.stateChangeCount = 0
+      if (this.el) {
+        let { children, ...rest } = this.props
+        assignProps(this.el, rest)
+        if (!this.component) {
+          return this.el.data = children
+        }
+      }
+      let children = this.getChildren(this.props)
+      ...
+  }
+  ...
+}
 ```
 
 ## 免责 | disclaimer
