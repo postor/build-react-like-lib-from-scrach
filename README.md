@@ -194,3 +194,9 @@ const App = () => {
 
 export default App
 ```
+
+## 免责 | disclaimer
+
+这个距离 react 的功能和效率还是差很远的，毕竟代码行数在哪里，即使有些可以做的优化我也没加进去，比如应该初始化元素后再追加到 DOM 树，这样能避免 reflow， 因为没有优化的代码更好理解，优化就会有些干扰代码的易读性。 
+
+It's still far from React, just a guide for you to understand it
